@@ -1,0 +1,32 @@
+{
+  "name": "dummy-sharejs-connection",
+  "version": "0.0.1",
+  "description": "Dummy connection for ShareJS for pure offline mode",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mavxg/dummy-sharejs-connection.git"
+  },
+  "keywords": [
+    "ShareJS",
+    "Offline",
+    "WebSocket"
+  ],
+  "author": "Benjamin Thomas Norrington <ben@norrington.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mavxg/dummy-sharejs-connection/issues"
+  },
+  "homepage": "https://github.com/mavxg/dummy-sharejs-connection",
+  "devDependencies": {
+    "chai": "^2.1.1",
+    "share": "^0.7.17",
+    "slate0": "git://github.com/mavxg/slate0"
+  }
+}
