@@ -57,21 +57,16 @@ describe('Dummy', function() {
 		doc.flush();
 	});
 
-
 	it('Other user can modify document', function(done) {
 		var doc = sjs.get('tests', 'docA');
-		var context = doc.createContext();
-		doc.subscribe();
-		var cb = function(op, local) {
-			assert.isFalse(local);
+		var ctx = doc.createContext();
+		ctx._onOp = function(op) {
 			assert.equal('{"type":"Document","id":1,"children":[{"type":"P","id":2,"children":["This really is some awesome text."]}]}', 
-				JSON.stringify(doc.getSnapshot()))
-			doc.removeListener('after op', cb);
+				JSON.stringify(this.getSnapshot()))
 			setTimeout(done, 20);
-		}
-		doc.on('after op', cb);
+		};
+		doc.subscribe();
 		dummy._submitOp({a:'op', op:[21,{i:" awesome"},27-21], v:2, seq:3, src:"otheruser"});
-
 		doc.flush();
 	});
 });
